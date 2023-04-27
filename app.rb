@@ -8,3 +8,7 @@ get('/') do
   <p>Define some routes in app.rb</p>
   "
 end
+
+get('/square/new') do
+  erb(:"calculation_templates/square_form")
+end
