@@ -23,3 +23,7 @@ get('/square/results') do
 
   erb(:"calculation_templates/square_results")
 end
+
+get('/random/results') do
+  erb(:"calculation_templates/random_results")
+end
