@@ -25,5 +25,8 @@ get('/square/results') do
 end
 
 get('/random/results') do
+  # puts params
+  # params = {"user_min"=>"1.5", "user_max"=>"4.5"}
+  
   erb(:"calculation_templates/random_results")
 end
