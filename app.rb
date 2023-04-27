@@ -27,6 +27,9 @@ end
 get('/random/results') do
   # puts params
   # params = {"user_min"=>"1.5", "user_max"=>"4.5"}
+
+  @lower = params.fetch("user_min").to_f
+  @upper = params.fetch("user_max").to_f
   
   erb(:"calculation_templates/random_results")
 end
