@@ -13,3 +13,8 @@ get('/square/new') do
   puts params
   erb(:"calculation_templates/square_form")
 end
+
+get('/square/results') do
+  puts params
+  erb(:"calculation_templates/square_results")
+end
