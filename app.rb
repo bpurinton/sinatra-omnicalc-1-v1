@@ -18,7 +18,7 @@ get('/square/results') do
   # puts params
   # params = {"elephant"=>"42"}
   
-  @num = params.fetch("elephant")
+  @num = params.fetch("elephant").to_f
   @square_of_num = @num * @num
 
   erb(:"calculation_templates/square_results")
