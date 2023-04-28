@@ -33,3 +33,13 @@ get('/random/results') do
   
   erb(:"calculation_templates/random_results")
 end
+
+get('/dice/:number/:sides') do
+  # puts params
+  # params = {"number"=>"4", "sides"=>"5"}
+
+  @number_of_dice = params.fetch("number")
+  @sides_per_dice = params.fetch("sides")
+
+  erb(:dice_roll)
+end
