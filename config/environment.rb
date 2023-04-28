@@ -1,6 +1,9 @@
 require './app'
 
 configure do
+  # instruct the app where to find the view templates
+  set :views, "app/views"
+
   # To open .html.erb files, need to register them
   Tilt.register(Tilt::ERBTemplate, 'html.erb')
   
