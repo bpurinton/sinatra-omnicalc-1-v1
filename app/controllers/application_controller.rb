@@ -1,0 +1,3 @@
+class ApplicationController < Sinatra::Base
+  # code for the controller here...
+end
