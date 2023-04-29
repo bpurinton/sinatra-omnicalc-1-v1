@@ -1,4 +1,4 @@
-require './app'
+# require './app'
 require './config/environment'
 require 'capybara/dsl'
 require "draft_matchers"
