@@ -1,7 +1,7 @@
 class ApplicationController < Sinatra::Base
-  # we not longer need to require sinatra
-  # require 'sinatra'
-
+  
+  # to make things a bit simpler, we need to put
+  # the configuration settings back into our main app file
   configure do
     # we need to specify where the views are
     views_directory = File.join(__dir__, '..', 'views')
