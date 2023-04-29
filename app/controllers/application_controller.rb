@@ -4,8 +4,7 @@ class ApplicationController < Sinatra::Base
   # the configuration settings back into our main app file
   configure do
     # we need to specify where the views are
-    views_directory = File.join(__dir__, '..', 'views')
-    set(:views, views_directory)
+    set(:views, "app/views")
     
     # To open .html.erb files, need to register them
     Tilt.register(Tilt::ERBTemplate, 'html.erb')
