@@ -2,6 +2,10 @@ class ApplicationController < Sinatra::Base
   # we not longer need to require sinatra
   # require 'sinatra'
 
+  # we need to specify where the views are
+  views_directory = File.join(__dir__, '..', 'views')
+  set(:views, views_directory)
+
   get('/') do
     "
     <h1>Welcome to your Sinatra App!</h1>
