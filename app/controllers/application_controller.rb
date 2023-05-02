@@ -42,8 +42,13 @@ class ApplicationController < MyApp
     erb(:dice_roll)
   end
 
-  get '/recipes/:id' do
-    @recipe = Recipe.find(params[:id])
+  get '/recipes' do
+    @recipe = Recipe.all
+    erb(:recipe_index)
+  end
+  
+  get '/recipes/:recipe_id' do
+    @recipe = Recipe.find(params.fetch("recipe_id"))
     erb(:recipe_details)
   end
 
