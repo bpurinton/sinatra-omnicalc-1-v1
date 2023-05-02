@@ -52,4 +52,8 @@ class ApplicationController < MyApp
     erb(:recipe_details)
   end
 
+  get '/recipes/new' do
+    erb(:recipe_new)
+  end
+
 end
