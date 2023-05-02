@@ -42,4 +42,30 @@ class ApplicationController < MyApp
     erb(:dice_roll)
   end
 
+  get('/tasks') do
+    @tasks = Task.all
+    erb(:task_index)
+  end
+
+  get('/tasks/new') do
+    erb(:task_new)
+  end
+
+  get('/add_new_task') do
+    # get data from params
+    title = params.fetch("title")
+    description = params.fetch("description")
+
+    # save a new record
+    @task = Task.new(title, description)
+    @task.save
+
+    redirect("/tasks/#{@task.title}")
+  end
+
+  get('/tasks/:task_title') do
+    @task = Task.find(params.fetch("task_title"))
+    erb(:task_details)
+  end
+
 end
