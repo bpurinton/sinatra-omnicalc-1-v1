@@ -32,3 +32,4 @@ class MyApp < Sinatra::Base
 end
 
 require "./app/controllers/application_controller"
+require "./app/models/recipe"
