@@ -2,11 +2,4 @@
 <p><%= @recipe.description %></p>
 
 <h2>Ingredients</h2>
-<ul>
-<% @recipe.ingredients.each do |ingredient| %>
-  <li><%= ingredient %></li>
-<% end %>
-</ul>
-
-<h2>How to Cook</h2>
-<p><%= @recipe.method %></p>
+<p><%= @recipe.ingredients %></p>

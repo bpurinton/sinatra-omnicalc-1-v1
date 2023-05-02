@@ -1,26 +1,31 @@
 class Recipe
-  attr_accessor :title, :description, :ingredients, :method
+  attr_accessor :id, :title, :description, :ingredients
 
-  @@recipes = []
-  @@id_counter = 0
+  @@all = []
+  @@id = 0
 
-  def initialize(attributes = {})
-    @id = attributes[:id] || @@id_counter += 1
-    @title = attributes[:title]
-    @description = attributes[:description]
-    @ingredients = attributes[:ingredients]
-    @method = attributes[:method]
+  def initialize(title, description, ingredients)
+    @id = @@id += 1
+    @title = title
+    @description = description
+    @ingredients = ingredients
+    @@all << self
   end
 
   def self.all
-    @@recipes
+    @@all
   end
 
   def self.find(id)
-    @@recipes.find { |recipe| recipe.id == id }
+    @@all.find { |recipe| recipe.id == id }
   end
 
   def save
-    @@recipes << self
+    @@all << self
+  end
+
+  def self.seed_data
+    Recipe.new("Chicken Curry", "A spicy curry made with chicken and vegetables.", ["Chicken", "Potatoes", "Carrots", "Onions", "Garlic", "Ginger", "Tomatoes", "Coconut milk", "Curry powder", "Salt", "Pepper"])
+    Recipe.new("Spaghetti Bolognese", "A classic Italian dish made with pasta and a rich meat sauce.", ["Ground beef", "Onions", "Garlic", "Carrots", "Celery", "Tomato paste", "Canned tomatoes", "Beef broth", "Red wine", "Spaghetti", "Parmesan cheese"])
   end
 end

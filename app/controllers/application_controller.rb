@@ -43,13 +43,8 @@ class ApplicationController < MyApp
   end
 
   get('/recipes') do
-    @recipe = Recipe.all
+    @recipes = Recipe.all
     erb(:recipe_index)
-  end
-  
-  get('/recipes/:recipe_id') do
-    @recipe = Recipe.find(params.fetch("recipe_id"))
-    erb(:recipe_details)
   end
 
   get('/recipes/new') do
@@ -57,16 +52,23 @@ class ApplicationController < MyApp
   end
 
   get('/add_new_recipe') do
-    @recipe = Recipe.new
+    # @recipe = Recipe.new
   
     # get data from params
-    @recipe.title = params.fetch("title")
-    @recipe.descriptions = params.fetch("descriptions")
-    @recipe.ingredients = params.fetch("ingredients")
-    @recipe.method = params.fetch("method")
+    title = params.fetch("title")
+    description = params.fetch("description")
+    ingredients = params.fetch("ingredients")
+
+    @recipe = Recipe.new(title, description, ingredients)
     @recipe.save
 
     redirect("/recipes/#{@recipe.id}")
+  end
+
+    
+  get('/recipes/:recipe_id') do
+    @recipe = Recipe.find(params.fetch("recipe_id").to_i)
+    erb(:recipe_details)
   end
 
 end
