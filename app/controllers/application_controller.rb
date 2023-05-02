@@ -60,11 +60,11 @@ class ApplicationController < MyApp
     @recipe = Recipe.new(title, description, ingredients)
     @recipe.save
 
-    redirect("/recipes/#{@recipe.id}")
+    redirect("/recipes/#{@recipe.title}")
   end
 
-  get('/recipes/:recipe_id') do
-    @recipe = Recipe.find(params.fetch("recipe_id").to_i)
+  get('/recipes/:recipe_title') do
+    @recipe = Recipe.find(params.fetch("recipe_title"))
     erb(:recipe_details)
   end
 
