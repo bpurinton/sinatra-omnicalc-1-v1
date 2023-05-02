@@ -52,8 +52,6 @@ class ApplicationController < MyApp
   end
 
   get('/add_new_recipe') do
-    # @recipe = Recipe.new
-  
     # get data from params
     title = params.fetch("title")
     description = params.fetch("description")
@@ -65,7 +63,6 @@ class ApplicationController < MyApp
     redirect("/recipes/#{@recipe.id}")
   end
 
-    
   get('/recipes/:recipe_id') do
     @recipe = Recipe.find(params.fetch("recipe_id").to_i)
     erb(:recipe_details)
