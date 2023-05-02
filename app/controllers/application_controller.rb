@@ -42,30 +42,30 @@ class ApplicationController < MyApp
     erb(:dice_roll)
   end
 
-  get('/recipes') do
-    @recipes = Recipe.all
-    erb(:recipe_index)
+  get('/tasks') do
+    @tasks = Task.all
+    erb(:task_index)
   end
 
-  get('/recipes/new') do
-    erb(:recipe_new)
+  get('/tasks/new') do
+    erb(:task_new)
   end
 
-  get('/add_new_recipe') do
+  get('/add_new_task') do
     # get data from params
     title = params.fetch("title")
     description = params.fetch("description")
-    ingredients = params.fetch("ingredients")
 
-    @recipe = Recipe.new(title, description, ingredients)
-    @recipe.save
+    # save a new record
+    @task = Task.new(title, description)
+    @task.save
 
-    redirect("/recipes/#{@recipe.title}")
+    redirect("/tasks/#{@task.title}")
   end
 
-  get('/recipes/:recipe_title') do
-    @recipe = Recipe.find(params.fetch("recipe_title"))
-    erb(:recipe_details)
+  get('/tasks/:task_title') do
+    @task = Task.find(params.fetch("task_title"))
+    erb(:task_details)
   end
 
 end
