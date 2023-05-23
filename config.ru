@@ -1,2 +1,2 @@
 require './config/environment'
-run(Sinatra::Application)
+run(ApplicationController)
